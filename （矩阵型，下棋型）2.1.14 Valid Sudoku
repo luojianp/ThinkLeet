@@ -1,3 +1,4 @@
+与爬梯不同点是，下棋型，先确定状态，然后再向下走，是深搜模型
 Determine if a Sudoku is valid, according to: Sudoku Puzzles - The Rules
 http://sudoku.com.au/TheRules.aspx .
 The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
@@ -7,4 +8,18 @@ The Sudoku board could be partially filled, where empty cells are filled with th
 变式：
 （1）数独求解:深搜，时间复杂度  具体需要确认？？o(9的mn次方)，空间复杂度o(mn)
  (2) 下棋型N-Queen(10.4 N-Queens) :深搜，时间复杂度（n的n次方） 空间复杂度o(n2)值得学习的是里边的列和两个对角线元素占用则采用滚动数组的方式规避。
- （3）机器人走
+(3)并行化：
+方法1：每个节点能存储下整个棋盘，子树并行化，每棵子树是一个分区（每个节点能够容纳整个棋盘）。(每个分区都是有一份棋盘数据，可以自己修改)（微软面试题）
+---问题1：子树不一定大小相同。加调度器，不断的将繁忙机器切分子树，不繁忙机器重新分配子树运算。
+方法2：如果棋盘过大，整个棋盘单节点无法容纳。
+
+判断数独是否成立型题（相比搜索结果的还容易些）：
+第一轮：判断小方格。每个小方格为一个分区。判断是否全满足。
+第二轮：Shuffle，变为行区间为一个分区，每个数据是一行数据，判断所有行是否满足。
+第三轮:Shuffle，变为列区间为一个分区，每个数据是一列数据，判断列是否满足。
+
+搜索数独结果型。
+方法1：小集群模拟单机：例如：3台能容纳的话就拿这三台，做一个子树的搜索，和shuffle同步数据
+方法2：数据存储在磁盘：保证单机能做，单子树的搜索。硬件优化，加SSD
+
+
