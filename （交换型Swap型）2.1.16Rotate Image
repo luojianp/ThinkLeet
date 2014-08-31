@@ -1,0 +1,13 @@
+You are given an n  n 2D matrix representing an image.
+Rotate the image by 90 degrees (clockwise).
+Follow up: Could you do this in-place?
+解法：先左右旋转，再副对角线旋转（可以画图对照）时间复杂度o(mn/2) 空间复杂度o(1)
+
+
+变式：
+（1）一维：单个一维整数序列字符序列，一个整数的位序列（15.1 Reverse Integer这个就是工程实现上的细节不同）。 reverse。夹逼，时间复杂度o(n)空间复杂度o(1)
+ (2) 多维：由于不太好呈像，暂时不想。
+ （3）并行化：
+ 例如：切分为4块。
+ 第一轮：逻辑转换。数据并不用动。
+ 第二轮：对角映射转换，本分区内进行对角转换即可。
