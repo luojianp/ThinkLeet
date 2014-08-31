@@ -1,0 +1,10 @@
+Determine if a Sudoku is valid, according to: Sudoku Puzzles - The Rules
+http://sudoku.com.au/TheRules.aspx .
+The Sudoku board could be partially filled, where empty cells are filled with the character '.'.
+解法：
+行遍历，列遍历，小方框遍历，时间复杂度o(n2)，空间复杂度o(1)
+
+变式：
+（1）数独求解:深搜，时间复杂度  具体需要确认？？o(9的mn次方)，空间复杂度o(mn)
+ (2) 下棋型N-Queen(10.4 N-Queens) :深搜，时间复杂度（n的n次方） 空间复杂度o(n2)值得学习的是里边的列和两个对角线元素占用则采用滚动数组的方式规避。
+ （3）机器人走
