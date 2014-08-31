@@ -1,0 +1,17 @@
+Design and implement a data structure for Least Recently Used (LRU) cache. It should support the
+following operations: get and set.
+2.2 单链表55
+get(key) - Get the value (will always be positive) of the key if the key exists in the cache, otherwise
+return -1.
+set(key, value) - Set or insert the value if the key is not already present. When the cache reached its
+capacity, it should invalidate the least recently used item before inserting a new item.
+（1）单机   hash（查找和更新时间复杂度o(1)）+链表（能够表示权重大小，同时为了能够用LRU更新，）
+
+
+（2）分布式
+
+2.1 每个节点有全部数据，cache全部隔离：每个节点有自己的全部缓存,query被负载均衡到随机机器，然后每台机器LRU。 cache复用度不高。
+2.2 每个节点有全部数据，cache全部共享：有一个节点访问某数据，query被负载均衡到随机机器，然后这个节点广播其他节点也缓存。    代价大
+2.3 每个节点全部数据，cache部分共享（1,2的折中）：query被hash到指定的子集机器，然后这几个机器共享广播cache信息。 1,2方案的权衡。
+2.2 每个节点有部分数据，无交叉，一致性Hash的缓存（memcached,dynamo）：劣势:有的节点过于hot——》解决：隔一段时间hot数据和非hot数据shuffle，
+让hot数据分布更加均匀。
