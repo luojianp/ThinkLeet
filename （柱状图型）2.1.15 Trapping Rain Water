@@ -1,0 +1,17 @@
+Given n non-negative integers representing an elevation map where the width of each bar is 1, compute
+how much water it is able to trap after raining.
+For example, Given [0,1,0,2,1,0,1,3,2,1,2,1], return 6.
+图2-3 Trapping Rain Water
+解法：左遍历，右遍历，求出每个柱子，最上方能称多少水。最后累加。时间复杂度o(n), 空间复杂度o(n)
+
+
+变式：
+（1）柱子内的最大长方形面积(4.1.3 Largest Rectangle in Histogram)：栈做，时间复杂度o(n)，空间复杂度o(n)
+(2)两个柱子组成的最大长方形面积：夹逼法，小的向里移动，（因为大的向内移动只能减少面积，小的还有希望扩展面积）。
+时间复杂度o(n)空间法复杂度o(1)
+
+（3）并行化（一般从头遍历，切求最值的不太好并行化）：
+2.1.15
+进行range分区，每个分区的柱子还是原顺序。
+第一轮：获取这个分区的max高度。map为key（左右坐标），value（max高度），reduce更新各分区的左右做大高度。
+第二轮：然后按照单机的做法求最大的水量
