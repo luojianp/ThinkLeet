@@ -1,0 +1,35 @@
+与下棋型的区别是，下棋是确定一个情况，然后向下深搜，而爬梯型是，由子问题向上动归累加。
+A robot is located at the top-left corner of a m  n grid (marked ’Start’ in the diagram below).
+The robot can only move either down or right at any point in time. The robot is trying to reach the
+bottom-right corner of the grid (marked ’Finish’ in the diagram below).
+How many possible unique paths are there?
+图10-1 Above is a 3  7 grid. How many possible unique paths are there?
+Note: m and n will be at most 100.
+解法：
+动态规划： f(i , j) = f(i - 1, j) + f(i, j - 1) ; 时间复杂度：o(m,n) 空间复杂度o(1)
+
+变式：
+(1)加障碍物(10.3 Unique Paths II)：障碍物点位f(i, j) = 0; 时间复杂度o(mn) 空间复杂度o(1)
+(2)一维，climb stairs：
+2.1判断是否能到：暴扫，贪心，动归。 时间复杂度o(n2)，空间复杂度o(1)
+2.2最小步数，动归。时间复杂度o(n2)，空间复杂度o(1)
+（3）一维：斐波那契数列。
+（4）k维空间，道理一致，只不过进行公式推广。例如：3维, f(i, j, k) = f(i - 1, j, k) + f(i, j -1, k) + f(i, j, k -1)
+(5)并行化：
+法1：将矩阵切为4n块（行列同时切的方法）。每块为一个分区。
+每块初始根据，左侧和上方边界变量，初始化为0，进行运算，然后结果存储为右侧和下侧结果。
+聚集阶段，根据key（分区所在矩阵位置），value(右侧和下侧的聚集结果) ，进行聚集，合并结果。
+法2：只按行切：
+每个分区为矩阵的一段行，进行响应的动态规划运算，聚集时候然后将结果聚合。
+法3：按照列切：
+每个分区为据真的 几个连续列。计算方式同上。
+
+
+
+
+
+
+
+
+
+ 
