@@ -1,0 +1,28 @@
+描述
+Implement next permutation, which rearranges numbers into the lexicographically next greater permutation
+of numbers.
+If such arrangement is not possible, it must rearrange it as the lowest possible order (ie, sorted in ascending
+order).
+The replacement must be in-place, do not allocate extra memory.
+Here are some examples. Inputs are in the left-hand column and its corresponding outputs are in the
+right-hand column.
+1,2,3 → 1,3,2
+3,2,1 → 1,2,3
+1,1,5 → 1,5,1
+解法：
+从右向左找到第一个逆序的元素下标s1，然后从右向左，找到第一个大于s1的下标s2，swap二者，然后将s1右侧重新由小到达排列(注意：
+这里不需要排序，而是需要reverse，因为交换后还是有序的逆序)。
+时间复杂度o(n)，空间复杂度o(1)
+
+变式：
+本质为排列问题
+(1)所有全排列的结果（8.3.1 next_permutation()）：在2.1.12基础之上，加个递增的最外层循环。
+法2：递归（如果不要求结果的顺序的话）
+(2)第k个全排列的结果(2.1.13 Permutation Sequence)：
+解法，编码的数学运算，每个第n位元素，对应着(n - 1)!个可能的后缀状况。
+(4)包含重复元素的（返回所有的排列）（8.4 Permutations II）
+解法和2.1.12的本题是一致的。因为算法并不改变值相同元素的相对序列。在排序中也就是说是稳定的算法。
+(5)n个元素取k个数组合，再进一步可以排列（在组合的结果之上，用排列做next排列 ）：
+ 法（1）：深搜（step<k控制深度），时间复杂度  再确认时间复杂度??(n(n-1)(n-2)..(n - k)) 空间复杂度o(n)
+
+ 
