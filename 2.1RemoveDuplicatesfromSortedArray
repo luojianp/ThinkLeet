@@ -1,0 +1,31 @@
+题目：
+Given a sorted array, remove the duplicates in place such that each element appear only once
+and return the new length.
+Do not allocate extra space for another array, you must do this in place with constant memory.
+For example, Given input array A = [1,1,2],
+Your function should return length = 2, and A is now [1,2].
+
+变式：
+0应用场景变化：string串的重复，或者query重复，或者是log的去重。
+1允许重复n次
+2未排序的数组{
+2.1先排序然后转化为这个问题时间o(n)空间
+2.2空间换时间直接hash做，时间o(n)空间o(n)
+}
+3链表为存储结构(允许重复的元素n次)
+4海量数据（内存无法hold住全数据）{
+4.1先进行hash分区
+4.2然后在分区内进行去重
+(如果数据倾斜：1更换分区hash函数 2 sample,知道数据分布后按照range分区，将分区分的尽可能数据均匀)
+}
+5并行化,多线程，和海量数据的是一个思想
+
+
+
+拓展：
+并行化的问题：
+三类问题本质的处理思想都是这个：
+1内存无法放住全数据，需要写到磁盘（单机做），单线程的处理。
+2多线程处理单机问题。
+3分布式处理问题。
+
