@@ -4,6 +4,11 @@ and return the new length.
 Do not allocate extra space for another array, you must do this in place with constant memory.
 For example, Given input array A = [1,1,2],
 Your function should return length = 2, and A is now [1,2].
+解题方法：
+1遍历去重 时间o(n) 空间o(1)
+2hash存储 时间o(n) 空间o(1)
+
+
 
 变式：
 0应用场景变化：string串的重复，或者query重复，或者是log的去重。
