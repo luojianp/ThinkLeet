@@ -1,0 +1,23 @@
+Suppose a sorted array is rotated at some pivot unknown to you beforehand.
+(i.e., 0 1 2 4 5 6 7 might become 4 5 6 7 0 1 2).
+You are given a target value to search. If found in the array return its index, otherwise return -1.
+You may assume no duplicate exists in the array.
+题解：
+二分，迭代： 时间o(lg(n)) 空间o(1) 递归 时间o(lg(n)) 空间o(n)
+注意：递归的空间复杂度认为为o(n)
+
+
+
+变式：
+1本质是二分的衍化版本
+1.1二分
+1.2查找的元素如果不存在，返回插入位置（7.2 Search Insert Position）
+2允许元素n个重复（2.1.4 Search in Rotated Sorted Array II）
+加个while(v[mid] != tmp) mid-- ;
+3查找的是重复元素的区间lowerbound或者upperbound（7.1 Search for a Range）
+4维度增加：查找的是2维空间的（7.3 Search a 2D Matrix），推广n维空间。
+5元素非排序：直接暴扫比较快 时间o(n)空间o(1)，如果排序转为二分问题需要时间哦 o(nlog(n))
+6并行化： 
+法1：1元素range分区 2然后每个分区做二分 3 哪个分区找到都ok
+法2：1元素做hash分区（会造成原来相邻的不同元素可能分布到不同的分区） 2 然后每个分区做二分 3 哪个分区找到都ok
+注：如果元素是未排序的则在分区内不用二分，而是暴扫进行搜索。
