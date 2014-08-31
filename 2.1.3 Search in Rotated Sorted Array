@@ -17,7 +17,9 @@ You may assume no duplicate exists in the array.
 3查找的是重复元素的区间lowerbound或者upperbound（7.1 Search for a Range）
 4维度增加：查找的是2维空间的（7.3 Search a 2D Matrix），推广n维空间。
 5元素非排序：直接暴扫比较快 时间o(n)空间o(1)，如果排序转为二分问题需要时间哦 o(nlog(n))
-6并行化： 
+6两个序列找第k元素（2.1.5 Median of Two Sorted Arrays） 拓展：k个序列找第k个元素
+思想和二分一致：一次丢掉一半的元素，简化问题。
+7并行化： 
 法1：1元素range分区 2然后每个分区做二分 3 哪个分区找到都ok
 法2：1元素做hash分区（会造成原来相邻的不同元素可能分布到不同的分区） 2 然后每个分区做二分 3 哪个分区找到都ok
 注：如果元素是未排序的则在分区内不用二分，而是暴扫进行搜索。
