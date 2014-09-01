@@ -24,3 +24,4 @@ For example, If S = [1,2,3], a solution is:
 变式：
 （1）Cn n问题元素含有重复元素（8.2 Subsets II）
 （2）Cn k问题
+(3) Cn k， 子集k有一定的指标。（10.7 Combination Sum为指定值） （10.8 Combination Sum II为指定值，数只能取一次）
