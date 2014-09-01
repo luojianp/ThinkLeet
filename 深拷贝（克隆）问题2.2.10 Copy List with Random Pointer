@@ -1,0 +1,23 @@
+A linked list is given such that each node contains an additional random pointer which could point to
+any node in the list or null.
+Return a deep copy of the list
+解法： 先将节点插入到原链表，然后进行next针赋值，然后脱离整个链表,时间复杂度o(n)，空间复杂度o(n)
+
+变式：
+（1）图拷贝（本质涵盖了树拷贝）（无random指针）（14.1 Clone Graph）：广搜+备忘录cache
+广搜，加备忘录。时间复杂度o(n)空间复杂度o(n)
+（2）图拷贝（本质涵盖了树拷贝）（带random指针）：需要考虑的地方是新节点放在旧节点的哪个位置，才能保证唯一性。
+第一轮：
+生成副本节点，做为原节点的孩子，然后在孩子的值中或者neighbour的索引中进行标记，证明是新节点。新节点的指向和旧节点指向的节点相同
+第二轮:
+遍历进行随机指针的指向确定。
+第三轮：将新节点脱离原图。
+(3)并行化
+
+将random指针转换为节点id才可以。可以将random指针指向一个节点id的结构体
+
+然后切分链表序列为不同的段，每个段算是一个分区。
+
+然后并行的在每个分区做之前的算法
+
+合并的时候将random指针指向的id换位指针。这个过程可以有个unordered_map<节点id, pointer>的结构做为cache检索。
