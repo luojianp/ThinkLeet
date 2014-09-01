@@ -1,0 +1,21 @@
+Given an array of integers, every element appears twice except for one. Find that single one.
+Note: Your algorithm should have a linear runtime complexity. Could you implement it without using
+extra memory?
+解法： 
+其他出现偶数次，这个数字出现奇数次
+法1：异或，时间复杂度o(n)，空间复杂度o(1)
+法2：万能方法： 记录每个位出现的次数，最后%2 为1的所有位合并的二进制即是，时间复杂度(n *32) 空间复杂度(n)
+      
+变式：
+大的方向两个维度变，大部分数据的出现次数，小部分数据的不同数据个数，相同数据个数
+（1）其他出现奇数次k，这个出现奇数次m（最后记录的判断是m的倍数，不是k的倍数的数字位组合为最终结果）：
+其他数字出现3次（即奇数次，上题是出现偶数次），找的数出现1次（2.1.23 Single Number）
+万能方法1：int数组做，空间复杂度o(n)，时间复杂度o(n)
+万能方法2：k-1（k==3）个int数做，o(k)基本为o(1)，时间复杂度(n)。这个位运算的推广k次运算。
+
+（2）其他出现偶数次，这个出现偶数,大部分出现4次，然后一个出现2次（最后判断每一位，是2的倍数，但不是4的倍数的即可（））
+(3) 原题基础之上，其他出现偶数次，找2个不同的数，靠一位0,1进行数的二分，然后递归到知道有 两个分区是不为0
+推广，找k个不同的数：同样递归到知道有k个分区不为0
+
+（4）并行化处理：
+在SparkCode中也处理过。
