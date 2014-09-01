@@ -5,3 +5,19 @@ Note: All inputs will be in lower-case
 
 变式：
 （1）13.7 Scramble String
+方法1：深搜  
+方法2：动归  时间复杂度 为何题解里是o(n^3)不是o(n^4)，仍待商榷 空间复杂度o(n^3)
+易错点i + n <= N别漏了 n
+for (int n = 1; n <= N; ++n) {
+for (int i = 0; i + n <= N; ++i) {
+for (int j = 0; j + n <= N; ++j) {
+for (int k = 1; k < n; ++k)
+
+
+（2）并行化，
+
+随机怎么分串都可以，每个分区都有bucket，然后最后汇总。可以指定几个分区只汇总几个 bucket
+
+scrable的这个不太好并行化。 
+（1）法，可以通过树的方式，子树并行化搜索。一棵搜索树算一个分区。
+（2）动归并行不好做，可以通过拆分动归有向无环图做。
