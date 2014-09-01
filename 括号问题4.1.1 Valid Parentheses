@@ -1,0 +1,11 @@
+Given a string containing just the characters ’(’, ’)’, ’{’, ’}’, ’[’ and ’]’, determine if the
+input string is valid.
+The brackets must close in the correct order, ”()” and ”()[]” are all valid but ”(]” and ”([)]” are
+not.
+
+题解：法1：栈做 时间复杂度o(n)，空间复杂度o(n)
+     
+     
+变式：
+（1）括号类型推广到n种，方式和上边一样的解决。
+（2）最长正确子序列（4.1.2 Longest Valid Parentheses），此问题可以合并到连续子序列的问题中来做。
