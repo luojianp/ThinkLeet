@@ -8,6 +8,9 @@ Some examples:
 Note: It is intended for the problem statement to be ambiguous. You should gather all requirements up
 front before implementing one.
 解法：实现的是stod的功能，细节
+<a href='http://www.cnblogs.com/remlostime/archive/2012/11/18/2775938.html'>
+http://www.cnblogs.com/remlostime/archive/2012/11/18/2775938.html</a>
+注意：题目只需要判断是否成立， 不需要转换为int
 
 变式：
 此类题都是细节题，考的是内容考虑测试用例是否全面。
