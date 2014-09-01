@@ -11,6 +11,7 @@ Follow up: Could you do this in-place?
  1直接逆置型：头插法： 时间复杂度o(n) 空间复杂度o(1)
  2交替逆置型（2.2.2 Reverse Linked List II）：
  3分块（区）逆置型：
+ 3.1 前k或者后k逆置（2.2.6 Rotate List），指针暂存历史，然后用1中直接逆置的方法进行逆置。
  
  
  （3）并行化：
