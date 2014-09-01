@@ -9,8 +9,9 @@ Follow up: Could you do this in-place?
  (2) 多维：由于不太好呈像，暂时不想。
  （3）链表逆置问题：
  1直接逆置型：头插法： 时间复杂度o(n) 空间复杂度o(1)
- 2交替逆置型（2.2.2 Reverse Linked List II）：
+ 2交替逆置型（2.2.13 Reorder List）：
  3分块（区）逆置型:
+ 3.0 其中的m - n的一块逆置（2.2.2 Reverse Linked List II）
  3.1(一块两个元素2.2.8 Swap Nodes in Pairs):最外层循环快慢指针，控制分区大小，然后内部循环相当于直接逆置中的头插法。
  3.2(一块k个元素2.2.9 Reverse Nodes in k-Group)：
  3.3 前k或者后k逆置（2.2.6 Rotate List），指针暂存历史，然后用1中直接逆置的方法进行逆置。
