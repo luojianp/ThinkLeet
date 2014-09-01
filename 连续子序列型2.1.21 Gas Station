@@ -1,0 +1,18 @@
+There are N gas stations along a circular route, where the amount of gas at station i is gas[i].
+You have a car with an unlimited gas tank and it costs cost[i] of gas to travel from station i to its next
+station (i+1). You begin the journey with an empty tank at one of the gas stations.
+Return the starting gas station’s index if you can travel around the circuit once, otherwise return -1.
+Note: The solution is guaranteed to be unique.
+解法： 之前的序列如果<0则丢弃，total记录整体。 是复杂度o(n)，空间复杂度o(1)
+
+变式：
+
+（1）最大连续子序列： 之前序列<0则丢弃，然后记录的是每个状态的时候的序列cur的最大值。时间复杂度o(n)，空间复杂度o(1)
+(2)扩展到二维矩阵，上面的两道题的方法也是能够通用的。
+法1可以用备忘录法（深搜）做，遇到之前序列<0则剪枝,为了提升时间复杂度，增加cache剪枝。时间复杂度o(n)，空间复杂度o(m*n)；
+法2既然可以用备忘录，则可以用动态规划做，节省空间可以考虑用滚动数组。时间复杂度o(m*n)，空间复杂度o(n)
+（3）推广到n维都是可以的，就是连续子序列问题。
+（4）并行化：
+深搜可以考虑，按照子树进行分。
+动归，还是切子矩阵的方式（注意：问题对之前结果依赖，所以不好并行化）。但是会分很多轮，先一轮左上角，
+然后接着沿着主对角线进行第二轮。
