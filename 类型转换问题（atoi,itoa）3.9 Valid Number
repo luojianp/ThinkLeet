@@ -1,0 +1,25 @@
+Validate if a given string is numeric.
+Some examples:
+"0" => true
+" 0.1 " => true
+"abc" => false
+"1 a" => false
+"2e10" => true
+Note: It is intended for the problem statement to be ambiguous. You should gather all requirements up
+front before implementing one.
+解法：实现的是stod的功能，细节
+
+变式：
+此类题都是细节题，考的是内容考虑测试用例是否全面。
+（1）变式1，罗马字符转换：
+（3.10 Integer to Roman）
+（3.11 Roman to Integer）
+（2）string与int转换
+1(atoi)
+2(itoa)
+
+(3)并行化：
+
+
+可以按照长串的区段进行串的切分。一段作为一个分区
+然后进行转换，最后的int转换为string容易，string 转换为int注意最后需要乘上相应数位对应的10的几倍
