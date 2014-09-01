@@ -1,0 +1,7 @@
+Given an array of strings, return all groups of strings that are anagrams.
+Note: All inputs will be in lower-case
+解法：对所有string排序，然后合并。每个string长度为n，有k个string。 时间复杂度o(k*nlg(n))，空间复杂度o(k)
+
+
+变式：
+（1）13.7 Scramble String
