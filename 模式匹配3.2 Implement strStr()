@@ -1,0 +1,23 @@
+Implement strStr().
+Returns a pointer to the first occurrence of needle in haystack, or null if needle is not part of haystack.
+解题： 
+1回溯，时间复杂度o(m*n)空间复杂度o(1) 
+2Kmp算法时间复杂度o(n + m)，时间复杂度o(m)
+（原串与新串匹配）
+
+
+变式：
+（1）正则表达式（原串与正则串匹配）（本质.（也是单一任何串） ?（也是单一任何串） *（两题主要在*的定义上的区别）三个符号）
+(3.6 Regular Expression Matching) 
+'*' Matches zero or more of the preceding element.所以c*可以match空
+isMatch("aab", "c*a*b") → true   
+(3.7 Wildcard Matching)'*' Matches any sequence of characters (including the empty sequence). 所以*与前面字符无关，c必须匹配个c
+如果没有则为错的了。
+isMatch("aab", "c*a*b") → false
+
+
+（2）前缀匹配问题（3.8 Longest Common Prefix未看，待总结）
+
+（3）并行化：
+可以考虑
+切分原串，然后广播子串
