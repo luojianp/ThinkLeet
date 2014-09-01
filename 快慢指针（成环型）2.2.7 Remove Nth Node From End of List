@@ -5,7 +5,7 @@ Note:
 • Given n will always be valid.
 解法：两个指针间隔k距离，然后最后一个指针到末尾时，删除前面指针指向的元素。时间复杂度o(n)，空间复杂度o(1) 
 
-
+和2.2.7类似的处理数组的（3.15 Length of Last Word）
 变式：
 （1）判断是否有环（2.2.11 Linked List Cycle）：
 法1：（本质也是图判断是否有环问题）hash缓存访问节点，时间复杂度o(n)空间复杂度o(1)
