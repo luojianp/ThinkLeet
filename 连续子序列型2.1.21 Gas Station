@@ -14,6 +14,10 @@ Note: The solution is guaranteed to be unique.
 （3）推广到n维都是可以的，就是连续子序列问题。
 （4）子序列带某种性质：
 4.1最长回文子序列（3.5 Longest Palindromic Substring）
+方法1：深搜+cache
+方法2：动态规划
+4.2 最长括号正确子序列（4.1.2 Longest Valid Parentheses）
+方法1：栈
 （5）并行化：
 深搜可以考虑，按照子树进行分。
 动归，还是切子矩阵的方式（注意：问题对之前结果依赖，所以不好并行化）。但是会分很多轮，先一轮左上角，
