@@ -1,0 +1,21 @@
+Given an array of integers, every element appears three times except for one. Find that single one.
+Note: Your algorithm should have a linear runtime complexity. Could you implement it without using
+extra memory?
+本题和上一题Single Number，考察的是位运算。
+方法1：创建一个长度为sizeof(int) 的数组count[sizeof(int)]，count[i] 表示所有元
+素的1 在i 位出现的次数。如果count[i] 是3 的整数倍，则忽略；否则就把该位取出来组成答案。
+方法2：用ones 记录到当前处理的元素为止，二进制1 出现“1 次”（mod 3 之后的1）的有哪
+些二进制位；用twos 记录到当前计算的变量为止，二进制1 出现“2 次”（mod 3 之后的2）的有哪
+些二进制位。当ones 和twos 中的某一位同时为1 时表示该二进制位上1 出现了3 次，此时需要
+清零。即用二进制模拟三进制运算。最终ones 记录的是最终结果。
+
+************************************************
+核心思想：空间换时间，用存储结构记录曾经计算的状态，减少冗余计算
+实现方式 Hash表-》数组-》bit（一个整数的各位，每一位表示一个状态，空间复杂度优化的极致）
+************************************************
+其他拓展类似的状态记录：
+（1）子集型（8.1 Subsets）（8.2 Subsets II）
+法1：增量
+法2：位向量（数据缓存位）
+法3：二进制（bit缓存位）
+（2）备忘录法中的备忘录其实也可以。（深搜，广搜型中的备忘录，可以考虑用bit来做，空间压缩到最小）
