@@ -1,0 +1,18 @@
+Given a string, determine if it is a palindrome, considering only alphanumeric characters and ignoring
+cases.
+For example,
+”A man, a plan, a canal: Panama” is a palindrome.
+”race a car” is not a palindrome.
+Note: Have you consider that the string might be empty? This is a good question to ask during an
+interview.
+For the purpose of this problem, we define empty string as valid palindrome.
+方法1：左右start end双指针遍历。 时间复杂度o(n)，空间复杂度o(1) 
+方法2：使用递归来做，输入 start end. 时间复杂度为 o（n）空间复杂度o(n)
+
+变式：
+（1）确认是否是回文：
+题1改变数据类型，换位int，相当于10进制数位运算了（Palindrome）时间复杂度o(n)，空间复杂度为o(1)
+题2一个任意数，位运算判断是否是回文
+(2)切分string，保证所有子段是回文（返回所有可能的切分结果10.1 Palindrome Partitioning）（返回最小cut的结果
+13.3 Palindrome Partitioning II）
+（3）最长回文子串（此题也可归并到连续子序列问题）（3.5 Longest Palindromic Substring）
