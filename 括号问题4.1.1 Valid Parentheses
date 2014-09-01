@@ -9,3 +9,4 @@ not.
 变式：
 （1）括号类型推广到n种，方式和上边一样的解决。
 （2）最长正确子序列（4.1.2 Longest Valid Parentheses），此问题可以合并到连续子序列的问题中来做。
+（3）根据n生成不同的括号序列，（10.9 Generate Parentheses）
