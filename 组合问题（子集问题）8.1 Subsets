@@ -25,8 +25,10 @@ For example, If S = [1,2,3], a solution is:
 （1）子集问题元素含有重复元素（8.2 Subsets II）
 （2）Cn k问题
 (3) Cn k， 子集k有一定的指标。（10.7 Combination Sum为指定值） （10.8 Combination Sum II为指定值，数只能取一次）
-（4）Cn K 和Cn n-k 构建二叉搜索树树子集问题：
+（4）Cn K 和Cn n-k 构建二叉搜索树树组合子集问题：
 1 求数量（5.3.1 Unique Binary Search Trees）
 动归问题
 2求所有树结果（5.3.2 Unique Binary Search Trees II）
 递归问题
+
+（5）括号的组合问题：10.9 Generate Parentheses
