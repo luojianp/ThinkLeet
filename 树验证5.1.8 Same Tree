@@ -1,8 +1,15 @@
 5.1.8 Same Tree
 
 变式：
+
+双树或者k个树：
 （1）对称树5.1.9 Symmetric Tree
 （2）混乱树（ Scramble String）
 方法1：深搜遍历
 方法2：备忘录法
 方法3：动归（最优）
+
+/////////////////////////////
+单树：
+(1)平衡树 5.1.10 Balanced Binary Tree
+(2)二查搜索树（5.1.7 Recover Binary Search Tree）
