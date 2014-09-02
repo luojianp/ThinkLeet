@@ -1,0 +1,8 @@
+5.1.8 Same Tree
+
+变式：
+（1）对称树5.1.9 Symmetric Tree
+（2）混乱树（ Scramble String）
+方法1：深搜遍历
+方法2：备忘录法
+方法3：动归（最优）
