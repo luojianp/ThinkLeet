@@ -1,0 +1,27 @@
+Given two words word1 and word2, find the minimum number of steps required to convert word1 to
+word2. (each operation is counted as 1 step.)
+You have the following 3 operations permitted on a word:
+13.9 Edit Distance 211
+• Insert a character
+• Delete a character
+• Replace a character
+
+解法：动归
+
+变式：
+（1）两字符串交叉合并：13.6 Interleaving String
+Given s1; s2; s3, find whether s3 is formed by the interleaving of s1 and s2.
+For example, Given: s1 = ”aabcc”, s2 = ”dbbca”,
+When s3 = ”aadbbcbcac”, return true.
+When s3 = ”aadbbbaccc”, return false.
+
+动归
+（2）不同子集序列（很类似编辑距离中的一种情况，即删除情况）T为S13.11 Distinct Subsequences
+Given a string S and a string T, count the number of distinct subsequences of T in S.
+A subsequence of a string is a new string which is formed from the original string by deleting some (can
+be none) of the characters without disturbing the relative positions of the remaining characters. (ie, "ACE" is
+a subsequence of "ABCDE" while "AEC" is not).
+Here is an example: S = "rabbbit", T = "rabbit"
+Return 3.
+
+动归
