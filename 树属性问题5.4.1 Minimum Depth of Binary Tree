@@ -1,0 +1,13 @@
+路径上节点数问题
+Given a binary tree, find its minimum depth.
+The minimum depth is the number of nodes along the shortest path from the root node down to the nearest
+leaf node.
+
+
+变式：
+（1）返回路径本身5.4.2 Maximum Depth of Binary Tree
+（2）路径上节点值总和问题
+1 确定的sum,验证：5.4.3 Path Sum
+2 确定的sum,返回路径本身：5.4.4 Path Sum II
+3 找最大的sum:5.4.5 Binary Tree Maximum Path Sum
+4 求每天路径的数的总和:5.4.7 Sum Root to Leaf Numbers
