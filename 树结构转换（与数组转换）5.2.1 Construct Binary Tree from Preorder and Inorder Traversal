@@ -1,0 +1,15 @@
+前序+中序 数组  =》构建树
+Given preorder and inorder traversal of a tree, construct the binary tree.
+Note: You may assume that duplicates do not exist in the tree.
+
+
+变式：
+(1)后续+中序 数组 =》 构建树 5.2.2 Construct Binary Tree from Inorder and Postorder Traversal
+（2）有序数组转换为二叉搜索树（5.3.4 Convert Sorted Array to Binary Search Tree）
+（3）旋转有序数组转换为二叉搜索树
+法1：数组转换为全有序数组（用两次翻转法来做） 
+法2：仍用递归做的话。输入可以为拼接，两拼接来做这个问题。因为会出现，两个区段是断的，但是是一个子树的，这样输入就是vector<point> allinterval
+stuct point {
+    int x
+    ing y
+  } 即可
