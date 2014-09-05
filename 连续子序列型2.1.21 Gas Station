@@ -18,7 +18,38 @@ Note: The solution is guaranteed to be unique.
 方法2：动态规划
 4.2 最长括号正确子序列（4.1.2 Longest Valid Parentheses）
 方法1：栈
-（5）并行化：
+4.3最短需要重新排序的子序列
+法，借鉴water trap的思想
+void fun(vector<int> &v) {
+  vector<int> left,right ;
+  int leftmax = 0, rightmin = 0;
+  for(int i = 0; i < n; i++) {
+    left[i] = leftmax ;
+    leftmax = max(leftmax, v[i]) ;
+  }
+  for(int j = n; j > 0; j--) {
+    right[i] = rightmin ;
+    rightmin = min(rightmin, v[i]) ;
+  }
+  int start = 0, end = n ;
+  for(int i = 0; i < n; i++) {
+    if(left[i]&&right[i]) {
+      start = i ;
+      break;
+    }
+  }
+  for(int i = n; i > 0; i--) {
+    if(left[i]&&right[i]) {
+      end = i ;
+      break;
+    }
+  }
+  }
+(5)多维扩展，矩阵中含有正负数，求子矩阵的和最大的子矩阵。
+法1：暴力分类讨论
+法2：以左上角，右下角为key，备忘录法
+法3：（既然可以备忘录法）则动态规划法
+  （6）并行化：
 深搜可以考虑，按照子树进行分。
 动归，还是切子矩阵的方式（注意：问题对之前结果依赖，所以不好并行化）。但是会分很多轮，先一轮左上角，
 然后接着沿着主对角线进行第二轮。
