@@ -17,7 +17,7 @@ Note:
 
 
 变式：
-（1）数1,2不断的生成新的序列。（3.12 Count and Say）
+（1）数1,2不断的生成新的序列。（3.12 Count and Say(本质是run -length encoding压缩的原理)）
 The count-and-say sequence is the sequence of integers beginning as follows:
 1, 11, 21, 1211, 111221, ...
 1 is read off as "one 1" or 11.
