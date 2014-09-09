@@ -2,6 +2,7 @@ You are given an n  n 2D matrix representing an image.
 Rotate the image by 90 degrees (clockwise).
 Follow up: Could you do this in-place?
 解法：先左右旋转，再副对角线旋转（可以画图对照）时间复杂度o(mn/2) 空间复杂度o(1)
+推广 n*90度的所有状况都能由这个进行旋转得到。
 
 
 变式：
