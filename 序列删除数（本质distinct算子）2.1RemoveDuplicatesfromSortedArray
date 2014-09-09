@@ -17,13 +17,26 @@ Your function should return length = 2, and A is now [1,2].
 2.1先排序然后转化为这个问题时间o(n)空间
 2.2空间换时间直接hash做，时间o(n)空间o(n)
 }
-3链表为存储结构(允许重复的元素n次)(2.2.4 Remove Duplicates from Sorted List | 2.2.5 Remove Duplicates from Sorted List II)
+3链表为存储结构(允许重复的元素n次)
+(2.2.4 Remove Duplicates from Sorted List | 2.2.5 Remove Duplicates from Sorted List II)
 4海量数据（内存无法hold住全数据）{
 4.1先进行hash分区
 4.2然后在分区内进行去重
 (如果数据倾斜：1更换分区hash函数 2 sample,知道数据分布后按照range分区，将分区分的尽可能数据均匀)
 }
 5并行化,多线程，和海量数据的是一个思想
+
+6
+6.1多个sort list 删除所有的重复的(扩展维度,list的个数)
+思想：归并排序
+k个list 每个list n个元素的话
+法1：归并排序时间复杂度o(n*k^2)空间复杂度o(k*n)
+法2：Hash表记录信息状态，扫描一遍即可,时间复杂度o(k*n)空间复杂度o(k*n)
+
+
+7处理方式，删除只要出现重复的元素，保留distinct，：
+方法：对指针进行稍加修改。
+
 
 
 
@@ -33,4 +46,6 @@ Your function should return length = 2, and A is now [1,2].
 1内存无法放住全数据，需要写到磁盘（单机做），单线程的处理。
 2多线程处理单机问题。
 3分布式处理问题。
+分布式的distinct实现：
 
+Hash 分区，然后每个分区进行hash或者排序进行distinct处理
