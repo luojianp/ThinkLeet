@@ -10,7 +10,10 @@ Note: m and n will be at most 100.
 
 变式：
 (1)加障碍物(10.3 Unique Paths II)：障碍物点位f(i, j) = 0; 时间复杂度o(mn) 空间复杂度o(1)
-(2)一维，climb stairs：
+(2)一维，climb stairs,12.1 Jump Game,12.2 Jump Game II：
+jump game贪心法的二维处理启示维护状态矩阵（用于判断可到达的范围），然后维护start起始队列，不断的从队列出数据然后遍历到最后
+
+
 2.1判断是否能到：暴扫，贪心，动归。 时间复杂度o(n2)，空间复杂度o(1)
 2.2最小步数，动归。时间复杂度o(n2)，空间复杂度o(1)
 （3）一维：斐波那契数列。
