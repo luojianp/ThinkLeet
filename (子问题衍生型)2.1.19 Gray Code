@@ -32,6 +32,14 @@ Note: The sequence of integers will be represented as a string
 (2)位图压缩算法
 （3）字典压缩
 （4）Huffman编码
+
+
+子问题衍生拓展：
+
+比赛日程表问题
+
+
+
 并行化：
 当内存无法hold所有分区，则由分区之间翻番然后最高位附加0,或者1，然后每个分区都是本地翻番，主节点控制元数据信息，这个分区位于总的结果的
 哪个位置。
