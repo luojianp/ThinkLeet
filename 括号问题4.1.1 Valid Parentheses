@@ -4,6 +4,7 @@ The brackets must close in the correct order, ”()” and ”()[]” are all va
 not.
 
 题解：法1：栈做 时间复杂度o(n)，空间复杂度o(n)
+      法2： 二分，做 ，这种方式有利于并行化实现，map阶段各分区做，然后返回剩余括号，reduce阶段再针对剩余括号进行合并。
      
      
 变式：
