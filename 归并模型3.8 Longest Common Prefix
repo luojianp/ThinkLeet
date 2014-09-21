@@ -1,6 +1,7 @@
 Write a function to find the longest common prefix string amongst an array of strings.
 解法： 法1：归并做
        法2,3横向和纵向匹配。见模式匹配总结
+       前提：如果预先已经有了长短信息，则最长串首先与最短串进行归并，第二长与第二短的字符串合并，这样则能够节省时间复杂度。
        
        
 变式：
