@@ -3,6 +3,9 @@ than or equal to x.
 You should preserve the original relative order of the nodes in each of the two partitions.
 For example, Given 1->4->3->2->5->2 and x = 3, return 1->2->2->4->3->5.
 解法：  两个指针，左侧尾插，右侧头插： 时间复杂度o(n) 空间复杂度o(1)
+        计数器法：hash缓存结果：时间复杂度o(n)空间复杂度o(k) k为不同的颜色数
+        更不好的方法：直接进行排序时间复杂度o(nlgn)空间复杂度o(1)  由于重复颜色多，造成存在大量冗余运算，这样造成这个方法的效果并
+        不好。
 
 
 变式：
