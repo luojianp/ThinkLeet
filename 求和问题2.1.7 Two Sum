@@ -52,13 +52,13 @@ public :
 	}
 	优化 最后的
 	for(int k = 0 ; k < n; k ++) {
-								c = v[k] ;
-								tmpc = tmpb - c ;
-								if(tmpc == 0) {
-									vector<int> t = {a, b, c} ;
-									result.push_back(t) ;
-								}
-							}
+		c = v[k] ;
+		tmpc = tmpb - c ;
+		if(tmpc == 0) {
+			vector<int> t = {a, b, c} ;
+			result.push_back(t) ;
+		}
+	}
 	改为二分：
 	int start = j ;
 	int end = n ;
