@@ -13,7 +13,26 @@ right-hand column.
 从右向左找到第一个逆序的元素下标s1，然后从右向左，找到第一个大于s1的下标s2，swap二者，然后将s1右侧重新由小到达排列(注意：
 这里不需要排序，而是需要reverse，因为交换后还是有序的逆序)。
 时间复杂度o(n)，空间复杂度o(1)
-
+code :
+class Solution {
+public :
+	vector<int> nextPermutation(vector<int> &v, int n) {	
+		int index = 0
+		for(int i = n - 2 ; i > 0 ; i --) {
+			if(v[i] < v[i - 1]) {
+				index = i;
+				break;
+			}
+		} 
+		for(int i = n - 1; i > 0; i --) {
+			if(v[i] > v[index]) {
+				swap(v[i], v[index]) :
+				sort(prev(v.end, index), v.end()) ;
+				break ;
+			}
+		}
+		return v;
+	}
 变式：
 本质为排列问题
 (1)所有全排列的结果（8.3.1 next_permutation()）：在2.1.12基础之上，加个递增的最外层循环。
