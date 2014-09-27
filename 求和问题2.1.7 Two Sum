@@ -19,6 +19,64 @@ Output: index1=1, index2=2
 （2）未排序过的 3 sum,返回数(2.1.8 3Sum) :
      （0）暴扫 时间复杂度o(n3)，空间复杂度o(1)
      （1）先排序，然后左右夹逼，时间复杂度o(n2)，空间复杂度o(1)
+     code:
+class Solution {
+public :
+	vector<int> SumThree(vector<int> &v, int n, int sum) {
+		sort(v.begin(), v.end()) ;
+		vector<vector<int>> result ;
+		int a = 0, b = 0, c = 0;
+		int tmpa = 0, tmpb = 0, tmpc = 0;
+		for(int i = 0; i < n; i++) {
+			a = v[i];
+			tmpa = sum - a ;
+			if(tmp > 0) {
+				for(int j = i; j < n; j++) {
+					b = v[j] ;
+					tmpb = tmpa - b ;
+						if(tmpb > 0) {
+							for(int k = 0 ; k < n; k ++) {
+								c = v[k] ;
+								tmpc = tmpb - c ;
+								if(tmpc == 0) {
+									vector<int> t = {a, b, c} ;
+									result.push_back(t) ;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+		return result ;
+	}
+	优化 最后的
+	for(int k = 0 ; k < n; k ++) {
+								c = v[k] ;
+								tmpc = tmpb - c ;
+								if(tmpc == 0) {
+									vector<int> t = {a, b, c} ;
+									result.push_back(t) ;
+								}
+							}
+	改为二分：
+	int start = j ;
+	int end = n ;
+	int target  = sum - tmpb ;
+	while(start <= end) {
+	     mid = (start + end) / 2 ;
+	     if(v[mid] == target) {
+	          vector<int> t = {a, b, target} ;
+		     result.push_back(t) ;
+		     break ;
+		} else if(v[mid] < target) {
+		     start ++ ;
+		} else {
+		     end -- ;
+		}
+	}
+		
+		
      (2)排序，然后计算两两组合结果，hash缓存，然后遍历一次找第三个数。时间复杂度(nlog(n))空间复杂度(o(n))
      未排序过的4 sum 返回数(2.1.10 4Sum):
      (0)暴扫 时间复杂度o(n4)，空间复杂度o(1)
