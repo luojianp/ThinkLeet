@@ -4,6 +4,28 @@ The brackets must close in the correct order, ”()” and ”()[]” are all va
 not.
 
 题解：法1：栈做 时间复杂度o(n)，空间复杂度o(n)
+class Solution {
+public :
+    bool judge(vector<int> &v, int n) {
+        stack<int> stack ;
+        string left = "({[" ;
+        string right = ")}]" ;
+        string tmp ;
+        for(inti = 0; i < n; i++) {
+            if(left.find(v[i]) != left.end()) {
+                stack.push(v[i]) ;
+            } else {
+                tmp = stack.top() ;
+                stack.pop() ;
+                if(left.find(tmp) == right.find(v[i])) {
+                    continue ;
+                } else {
+                    return false ;
+                }
+            }
+         }
+         return true ;
+     }
       法2： 二分，做 ，这种方式有利于并行化实现，map阶段各分区做，然后返回剩余括号，reduce阶段再针对剩余括号进行合并。
      
      
