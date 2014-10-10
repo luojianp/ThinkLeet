@@ -13,6 +13,28 @@ For the purpose of this problem, we define empty string as valid palindrome.
 （1）确认是否是回文：
 题1改变数据类型，换位int，相当于10进制数位运算了（15.2 Palindrome Number）时间复杂度o(n)，空间复杂度为o(1)
 题2一个任意数，位运算判断是否是回文
+bool validate(string s) {
+    int start = 0 ;
+    int end = strlen(s) ;
+    if(s == null) return true ;
+    while(start <= end) {
+        if(s[start] == ' ') {
+            start ++ ;
+            continue ;
+        } 
+        if(s[end] == ' ') {
+            end -- ;
+            continue ;
+        }
+        if(s[start] == s[end]) {
+            start ++ ;
+            end -- ;
+        } else  {
+            return false ;
+        }
+     }
+     return true ;
+     } 
 (2)切分string，保证所有子段是回文
 1（返回所有可能的切分结果10.1 Palindrome Partitioning）:
 方法1：深搜1 每个间隔切或不切，整体搜索是个二叉树，时间复杂度 o(2^n) 空间复杂度o(n)
@@ -23,7 +45,62 @@ For the purpose of this problem, we define empty string as valid palindrome.
 （3）最长回文子串（此题也可归并到连续子序列问题）（3.5 Longest Palindromic Substring）
 和（2）中动归，类似，动态规划做，时间复杂度o(n^2)空间复杂度o(n)
 
-（4）并行化：
+（4）一个串中含有多少回文子串? 默认串中间没有空格的情况
+法1：动态规划 , 拆分子问题： f[i][j] = s[i] == s[j] && f[i - 1][j - 1] (此种默认是没有空格的) 时间复杂度 O(n^2) 空间复杂度o(n^2)
+优化使用滚动数组，空间复杂度o(n)
+int count(string s) {
+  int start = 0 ;
+  int end = strlen(s) ;
+  vector<true> f(end, false) ;
+  int count = 0 ;
+  for(int i = 0 ; i < end ; i ++) {
+    for(int j = 0 ; j < end ; j ++) {
+      if(s[i] == s[j] && f[j - 1] == true) {
+        f[j - 1] = true ;
+        count ++ ;
+      } else {
+        f[j - 1] = false ;
+      }
+    }
+  }
+  return  count ;
+}
+此处还有个变式：如果回文只记录最大回文，而不记录每个回文的子回文？ 则需要加状态量，
+将上面的算法
+if(s[i] == s[j] && f[j - 1] == true) {
+        f[j - 1] = true ;
+        //count ++ ;
+      } else {
+        //此处改为
+        if(f[j - 1] == true) count ++ ; //add new sentence
+        f[j - 1] = false ;
+      }
+
+法2 ： 深搜 + 备忘录 （自顶向下） 时间复杂度o(2^n) 空间复杂度o(n)
+static int count ;
+unordered_map<string, bool> cache ;
+bool find(string s) {
+  if(strlen(s) == 1) return true ;
+  int end = strlen(s) - 1 ;
+  bool left = find(s.substr(0, end - 1)) ;
+  bool right = find(s.substr(1, end)) ;
+  bool sub = find(s.substr(1, end - 1)) ;
+  if(left) {
+    if(!cache[s.substr(0, end - 1)]) {
+      cache[s.substr(0, end - 1)] = false ;
+      count ++ ;
+    }
+  } 
+  //此处会在left和right中有重复计算需要cache结果
+  if(!cache[s.substr(1, end)]) {
+      cache[s.substr(1, end)] = false ;
+      count ++ ;
+    }
+  return s[0] == s[end] && sub ;
+}
+
+
+（5）并行化：
 
 （确认回文问题）切分方式：将对应首位的两块，算一个分区
 然后这样分布式的判断即可。
