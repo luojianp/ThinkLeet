@@ -1,0 +1,8 @@
+1Median : suppose you have a cluster, and each machine in this cluster
+has a large number of numbers. How can you find out the median of all the
+numbers on all the machines.
+法1：整个数据排序，然后根据便宜找到指定的分区和相应的分区内的便宜 时间复杂度 o（nlgn）空间复度o(1)
+法2: 类似TeraSort思路，将每个分区分成l个桶（根据range），然后统计相应桶中的数据量，然后算出中位数落在哪个桶和桶中的偏移。
+     最后数据按照求第k个数做。 时间复杂度o(k(n/l))
+     或者，如果量太大可以再从这个桶中，再按照range分桶来做。
+     
